@@ -3,8 +3,9 @@ import os
 
 HOST = "bemfa.com"
 PORT = 9501
-client_id = "粘贴巴法云你的私匙"
-cmd1 = 'etherwake -D -i "br0" "XX:XX:XX:XX:XX:XX"'
+client_id = "xxxxx"
+
+cmd1 = "wol 'xxxx'"
 cmd2 = (
     'curl -s "https://api.bemfa.com/api/device/v1/data/3/push/get/?uid=%s&topic=PC001&msg=off" -w "\n"'
     % client_id
@@ -14,7 +15,7 @@ cmd2 = (
 # 连接并订阅
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code " + str(rc))
-    client.subscribe("PC001")  # 订阅消息
+    client.subscribe("PC002")  # 订阅消息
 
 
 # 消息接收
